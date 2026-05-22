@@ -1,5 +1,6 @@
 import {
   AppWindowIcon,
+  BarChart3Icon,
   CreditCardIcon,
   GaugeIcon,
   HomeIcon,
@@ -27,6 +28,7 @@ import { ThemeToggle } from "@/components/layout/ThemeToggle"
 const mainLinks = [
   { to: "/", label: "Home", icon: HomeIcon, end: true },
   { to: "/dashboard", label: "Dashboard", icon: GaugeIcon },
+  { to: "/charts", label: "Charts", icon: BarChart3Icon },
   { to: "/settings", label: "Settings", icon: SettingsIcon },
   { to: "/components", label: "Components", icon: ShapesIcon },
 ]

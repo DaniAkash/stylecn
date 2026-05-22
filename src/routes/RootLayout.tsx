@@ -11,6 +11,7 @@ import {
 const pageTitles: Record<string, string> = {
   "/": "Home",
   "/dashboard": "Dashboard",
+  "/charts": "Charts",
   "/settings": "Settings",
   "/components": "Components",
 }

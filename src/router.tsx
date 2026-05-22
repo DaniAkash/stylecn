@@ -4,6 +4,7 @@ import { RootLayout } from "@/routes/RootLayout"
 import { AuthLayout } from "@/routes/AuthLayout"
 import HomeRoute from "@/routes/HomeRoute"
 import DashboardRoute from "@/routes/DashboardRoute"
+import ChartsRoute from "@/routes/ChartsRoute"
 import SettingsRoute from "@/routes/SettingsRoute"
 import ComponentsRoute from "@/routes/ComponentsRoute"
 import LoginRoute from "@/routes/LoginRoute"
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomeRoute /> },
       { path: "/dashboard", element: <DashboardRoute /> },
+      { path: "/charts", element: <ChartsRoute /> },
       { path: "/settings", element: <SettingsRoute /> },
       { path: "/components", element: <ComponentsRoute /> },
     ],
