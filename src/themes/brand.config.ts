@@ -1,4 +1,19 @@
-export type BrandId = "default" | "apple" | "stripe" | "fly" | "elevenlabs" | "cursor"
+export type BrandId =
+  | "default"
+  | "apple"
+  | "stripe"
+  | "fly"
+  | "elevenlabs"
+  | "cursor"
+  | "claude"
+  | "superhuman"
+  | "raycast"
+  | "duolingo"
+  | "airbnb"
+  | "wise"
+  | "todoist"
+  | "linear"
+  | "resend"
 
 export type Brand = {
   id: BrandId
@@ -273,6 +288,258 @@ const CURSOR_CSS = `:root {
 }
 `
 
+const CLAUDE_CSS = `:root {
+  --background: #faf9f5;
+  --foreground: #181818;
+  --card: #faf9f5;
+  --primary: #d97757;
+  --primary-foreground: #ffffff;
+  --muted: #f0eee6;
+  --muted-foreground: #6e6e6e;
+  --border: #e0ddd1;
+  --input: #e0ddd1;
+  --ring: #d97757;
+  --radius: 0.625rem;
+  --radius-xl: 10px;
+}
+
+.dark {
+  --background: #1a1916;
+  --foreground: #faf9f5;
+  --card: #1a1916;
+  --primary: #d97757;
+  --muted: #25231e;
+  --muted-foreground: #a8a59a;
+  --border: rgba(255,255,255,0.10);
+  --ring: #d97757;
+}
+`
+
+const SUPERHUMAN_CSS = `:root {
+  --background: #f2f0eb;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --primary: #714cb6;
+  --primary-foreground: #ffffff;
+  --muted: #e8e5dd;
+  --muted-foreground: #6b6b6b;
+  --border: #d8d5cc;
+  --input: #d8d5cc;
+  --ring: #714cb6;
+  --radius: 0.75rem;
+  --radius-xl: 16px;
+}
+
+.dark {
+  --background: #14131a;
+  --foreground: #f2f0eb;
+  --card: #1f1d28;
+  --primary: #9b7ed6;
+  --primary-foreground: #14131a;
+  --muted: #2e2b3a;
+  --muted-foreground: #a09cb0;
+  --border: rgba(255,255,255,0.10);
+  --ring: #9b7ed6;
+}
+`
+
+const RAYCAST_CSS = `:root {
+  --background: #ffffff;
+  --foreground: #040506;
+  --card: #fafafa;
+  --primary: #ff6363;
+  --primary-foreground: #ffffff;
+  --muted: #f0f0f0;
+  --muted-foreground: #6e6e6e;
+  --border: #e6e6e6;
+  --input: #e6e6e6;
+  --ring: #ff6363;
+  --radius: 0.6875rem;
+  --radius-xl: 11px;
+}
+
+.dark {
+  --background: #040506;
+  --foreground: #f5f5f5;
+  --card: #07080a;
+  --primary: #ff6363;
+  --muted: #14161a;
+  --muted-foreground: #9e9e9e;
+  --border: rgba(255,255,255,0.10);
+  --ring: #ff6363;
+}
+`
+
+const DUOLINGO_CSS = `:root {
+  --background: #ffffff;
+  --foreground: #3c3c3c;
+  --card: #ffffff;
+  --primary: #58cc02;
+  --primary-foreground: #ffffff;
+  --muted: #f7f7f7;
+  --muted-foreground: #777777;
+  --accent: #f0fae0;
+  --accent-foreground: #4f8a17;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #58cc02;
+  --radius: 0.75rem;
+  --radius-xl: 12px;
+}
+
+.dark {
+  --background: #1c1c1c;
+  --foreground: #ffffff;
+  --card: #2a2a2a;
+  --primary: #58cc02;
+  --muted: #3a3a3a;
+  --muted-foreground: #b0b0b0;
+  --border: rgba(255,255,255,0.10);
+  --ring: #58cc02;
+}
+`
+
+const AIRBNB_CSS = `:root {
+  --background: #ffffff;
+  --foreground: #222222;
+  --card: #ffffff;
+  --primary: #222222;
+  --primary-foreground: #ffffff;
+  --muted: #f7f7f7;
+  --muted-foreground: #717171;
+  --destructive: #ff385c;
+  --border: #dddddd;
+  --input: #dddddd;
+  --ring: #222222;
+  --radius: 0.75rem;
+  --radius-xl: 12px;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #1a1a1a;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --muted: #2a2a2a;
+  --muted-foreground: #b0b0b0;
+  --border: rgba(255,255,255,0.10);
+  --ring: #ffffff;
+}
+`
+
+const WISE_CSS = `:root {
+  --background: #ffffff;
+  --foreground: #163300;
+  --card: #ffffff;
+  --primary: #9fe870;
+  --primary-foreground: #163300;
+  --muted: #f4f4f4;
+  --muted-foreground: #5a6967;
+  --accent: #e3f5d1;
+  --accent-foreground: #163300;
+  --border: #dcdcdc;
+  --input: #dcdcdc;
+  --ring: #9fe870;
+  --radius: 0.625rem;
+  --radius-xl: 10px;
+}
+
+.dark {
+  --background: #0a1e08;
+  --foreground: #f4f4f4;
+  --card: #14310f;
+  --primary: #9fe870;
+  --primary-foreground: #163300;
+  --muted: #1f4218;
+  --muted-foreground: #a8b8a0;
+  --border: rgba(255,255,255,0.10);
+  --ring: #9fe870;
+}
+`
+
+const TODOIST_CSS = `:root {
+  --background: #fefdfc;
+  --foreground: #1f1d1c;
+  --card: #fefdfc;
+  --primary: #e34432;
+  --primary-foreground: #ffffff;
+  --muted: #f5f3f0;
+  --muted-foreground: #6e6a66;
+  --border: #e5e1dc;
+  --input: #e5e1dc;
+  --ring: #e34432;
+  --radius: 0.625rem;
+  --radius-xl: 10px;
+}
+
+.dark {
+  --background: #1c1b1a;
+  --foreground: #fefdfc;
+  --card: #262422;
+  --primary: #e34432;
+  --muted: #36322f;
+  --muted-foreground: #a8a39f;
+  --border: rgba(255,255,255,0.10);
+  --ring: #e34432;
+}
+`
+
+const LINEAR_CSS = `:root {
+  --background: #ffffff;
+  --foreground: #08090a;
+  --card: #fafafa;
+  --primary: #5e6ad2;
+  --primary-foreground: #ffffff;
+  --muted: #f4f4f5;
+  --muted-foreground: #6b6f76;
+  --border: #e6e6e7;
+  --input: #e6e6e7;
+  --ring: #5e6ad2;
+  --radius: 0.375rem;
+  --radius-xl: 6px;
+}
+
+.dark {
+  --background: #08090a;
+  --foreground: #f5f5f5;
+  --card: #0f1011;
+  --primary: #5e6ad2;
+  --primary-foreground: #ffffff;
+  --muted: #1a1b1d;
+  --muted-foreground: #8a8f98;
+  --border: rgba(255,255,255,0.10);
+  --ring: #5e6ad2;
+}
+`
+
+const RESEND_CSS = `:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --primary: #3b9eff;
+  --primary-foreground: #ffffff;
+  --muted: #f4f4f5;
+  --muted-foreground: #6e6e6e;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #3b9eff;
+  --radius: 1rem;
+  --radius-xl: 16px;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #fafafa;
+  --card: #000000;
+  --primary: #3b9eff;
+  --muted: #141414;
+  --muted-foreground: #a3a3a3;
+  --border: rgba(255,255,255,0.10);
+  --ring: #3b9eff;
+}
+`
+
 const DEFAULT_CSS = `/* Baseline shadcn nova — the default when no brand is picked. */`
 
 export const brands: Record<BrandId, Brand> = {
@@ -318,24 +585,107 @@ export const brands: Record<BrandId, Brand> = {
     swatch: "#f54e00",
     cssVariables: CURSOR_CSS,
   },
+  claude: {
+    id: "claude",
+    label: "Claude",
+    description: "Vellum academic · Flat surfaces · Warm orange CTA",
+    swatch: "#d97757",
+    cssVariables: CLAUDE_CSS,
+  },
+  superhuman: {
+    id: "superhuman",
+    label: "Superhuman",
+    description: "Cream canvas · White card lift · Violet CTA",
+    swatch: "#714cb6",
+    cssVariables: SUPERHUMAN_CSS,
+  },
+  raycast: {
+    id: "raycast",
+    label: "Raycast",
+    description: "Obsidian terminal (dark-first) · Coral CTA",
+    swatch: "#ff6363",
+    cssVariables: RAYCAST_CSS,
+  },
+  duolingo: {
+    id: "duolingo",
+    label: "Duolingo",
+    description: "Playful white · Rounded everything · Vivid green CTA",
+    swatch: "#58cc02",
+    cssVariables: DUOLINGO_CSS,
+  },
+  airbnb: {
+    id: "airbnb",
+    label: "Airbnb",
+    description: "Editorial white · Achromatic black CTA",
+    swatch: "#222222",
+    cssVariables: AIRBNB_CSS,
+  },
+  wise: {
+    id: "wise",
+    label: "Wise",
+    description: "Fintech white · Lime green CTA on dark text",
+    swatch: "#9fe870",
+    cssVariables: WISE_CSS,
+  },
+  todoist: {
+    id: "todoist",
+    label: "Todoist",
+    description: "Warm minimal · Soft red CTA",
+    swatch: "#e34432",
+    cssVariables: TODOIST_CSS,
+  },
+  linear: {
+    id: "linear",
+    label: "Linear",
+    description: "Command center (dark-first) · Brand violet CTA",
+    swatch: "#5e6ad2",
+    cssVariables: LINEAR_CSS,
+  },
+  resend: {
+    id: "resend",
+    label: "Resend",
+    description: "Developer terminal (dark-first) · Bright blue CTA",
+    swatch: "#3b9eff",
+    cssVariables: RESEND_CSS,
+  },
 }
 
 export const brandList: Brand[] = [
   brands.default,
   brands.apple,
-  brands.stripe,
-  brands.fly,
-  brands.elevenlabs,
+  brands.claude,
+  brands.airbnb,
   brands.cursor,
+  brands.duolingo,
+  brands.elevenlabs,
+  brands.fly,
+  brands.linear,
+  brands.raycast,
+  brands.resend,
+  brands.stripe,
+  brands.superhuman,
+  brands.todoist,
+  brands.wise,
+]
+
+const BRAND_IDS: BrandId[] = [
+  "default",
+  "apple",
+  "stripe",
+  "fly",
+  "elevenlabs",
+  "cursor",
+  "claude",
+  "superhuman",
+  "raycast",
+  "duolingo",
+  "airbnb",
+  "wise",
+  "todoist",
+  "linear",
+  "resend",
 ]
 
 export function isBrandId(value: string | null | undefined): value is BrandId {
-  return (
-    value === "default" ||
-    value === "apple" ||
-    value === "stripe" ||
-    value === "fly" ||
-    value === "elevenlabs" ||
-    value === "cursor"
-  )
+  return typeof value === "string" && (BRAND_IDS as string[]).includes(value)
 }
