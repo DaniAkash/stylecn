@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="public/icon.png" alt="stylecn" width="120" height="120" />
-</p>
+<img src="public/icon.png" alt="stylecn" width="120" height="120" />
 
 # stylecn
 
