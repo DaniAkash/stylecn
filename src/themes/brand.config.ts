@@ -1,19 +1,18 @@
 export type BrandId =
-  | "default"
-  | "apple"
-  | "stripe"
-  | "fly"
-  | "elevenlabs"
-  | "cursor"
-  | "claude"
-  | "superhuman"
-  | "raycast"
-  | "duolingo"
   | "airbnb"
-  | "wise"
-  | "todoist"
+  | "apple"
+  | "claude"
+  | "cursor"
+  | "duolingo"
+  | "elevenlabs"
+  | "fly"
   | "linear"
+  | "raycast"
   | "resend"
+  | "stripe"
+  | "superhuman"
+  | "todoist"
+  | "wise"
 
 export type Brand = {
   id: BrandId
@@ -540,16 +539,7 @@ const RESEND_CSS = `:root {
 }
 `
 
-const DEFAULT_CSS = `/* Baseline shadcn nova — the default when no brand is picked. */`
-
 export const brands: Record<BrandId, Brand> = {
-  default: {
-    id: "default",
-    label: "shadcn (default)",
-    description: "Neutral nova baseline",
-    swatch: "#0a0a0a",
-    cssVariables: DEFAULT_CSS,
-  },
   apple: {
     id: "apple",
     label: "Apple",
@@ -651,10 +641,9 @@ export const brands: Record<BrandId, Brand> = {
 }
 
 export const brandList: Brand[] = [
-  brands.default,
+  brands.airbnb,
   brands.apple,
   brands.claude,
-  brands.airbnb,
   brands.cursor,
   brands.duolingo,
   brands.elevenlabs,
@@ -668,23 +657,10 @@ export const brandList: Brand[] = [
   brands.wise,
 ]
 
-const BRAND_IDS: BrandId[] = [
-  "default",
-  "apple",
-  "stripe",
-  "fly",
-  "elevenlabs",
-  "cursor",
-  "claude",
-  "superhuman",
-  "raycast",
-  "duolingo",
-  "airbnb",
-  "wise",
-  "todoist",
-  "linear",
-  "resend",
-]
+/** First brand in the alphabetically-sorted list — used when no ?brand= URL param is present. */
+export const DEFAULT_BRAND: BrandId = brandList[0].id
+
+const BRAND_IDS: BrandId[] = brandList.map((b) => b.id)
 
 export function isBrandId(value: string | null | undefined): value is BrandId {
   return typeof value === "string" && (BRAND_IDS as string[]).includes(value)
