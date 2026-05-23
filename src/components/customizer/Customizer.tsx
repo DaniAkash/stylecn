@@ -1,11 +1,10 @@
-import { useBrand } from "@/components/brand-provider"
+import { BrandDnaStrip } from "@/components/customizer/BrandDnaStrip"
 import { BrandPicker } from "@/components/customizer/BrandPicker"
 import { CopyCss } from "@/components/customizer/CopyCss"
 import { ModePicker } from "@/components/customizer/ModePicker"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -13,15 +12,11 @@ import {
 import { FieldGroup, FieldSeparator } from "@/components/ui/field"
 
 export function Customizer() {
-  const { meta } = useBrand()
-
   return (
     <Card className="isolate w-full overflow-hidden shadow-md">
-      <CardHeader className="gap-1">
+      <CardHeader className="gap-2.5">
         <CardTitle className="text-sm">Theme</CardTitle>
-        <CardDescription className="text-xs">
-          {meta.description}
-        </CardDescription>
+        <BrandDnaStrip />
       </CardHeader>
       <CardContent>
         <FieldGroup className="gap-3.5">

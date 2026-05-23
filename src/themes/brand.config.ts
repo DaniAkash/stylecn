@@ -17,7 +17,6 @@ export type BrandId =
 export type Brand = {
   id: BrandId
   label: string
-  description: string
   swatch: string
   cssVariables: string
 }
@@ -543,98 +542,84 @@ export const brands: Record<BrandId, Brand> = {
   apple: {
     id: "apple",
     label: "Apple",
-    description: "Gallery white canvas · Azure CTA",
     swatch: "#0071e3",
     cssVariables: APPLE_CSS,
   },
   stripe: {
     id: "stripe",
     label: "Stripe",
-    description: "Powder-blue cards · Deep violet CTA",
     swatch: "#533afd",
     cssVariables: STRIPE_CSS,
   },
   fly: {
     id: "fly",
     label: "Fly.io",
-    description: "Lavender mist · Electric violet CTA",
     swatch: "#7c3aed",
     cssVariables: FLY_CSS,
   },
   elevenlabs: {
     id: "elevenlabs",
     label: "ElevenLabs",
-    description: "Eggshell warmth · Black pill CTA",
     swatch: "#000000",
     cssVariables: ELEVENLABS_CSS,
   },
   cursor: {
     id: "cursor",
     label: "Cursor",
-    description: "Warm parchment · Tinted cards · Onyx orange accent",
     swatch: "#f54e00",
     cssVariables: CURSOR_CSS,
   },
   claude: {
     id: "claude",
     label: "Claude",
-    description: "Vellum academic · Flat surfaces · Warm orange CTA",
     swatch: "#d97757",
     cssVariables: CLAUDE_CSS,
   },
   superhuman: {
     id: "superhuman",
     label: "Superhuman",
-    description: "Cream canvas · White card lift · Violet CTA",
     swatch: "#714cb6",
     cssVariables: SUPERHUMAN_CSS,
   },
   raycast: {
     id: "raycast",
     label: "Raycast",
-    description: "Obsidian terminal (dark-first) · Coral CTA",
     swatch: "#ff6363",
     cssVariables: RAYCAST_CSS,
   },
   duolingo: {
     id: "duolingo",
     label: "Duolingo",
-    description: "Playful white · Rounded everything · Vivid green CTA",
     swatch: "#58cc02",
     cssVariables: DUOLINGO_CSS,
   },
   airbnb: {
     id: "airbnb",
     label: "Airbnb",
-    description: "Editorial white · Achromatic black CTA",
     swatch: "#222222",
     cssVariables: AIRBNB_CSS,
   },
   wise: {
     id: "wise",
     label: "Wise",
-    description: "Fintech white · Lime green CTA on dark text",
     swatch: "#9fe870",
     cssVariables: WISE_CSS,
   },
   todoist: {
     id: "todoist",
     label: "Todoist",
-    description: "Warm minimal · Soft red CTA",
     swatch: "#e34432",
     cssVariables: TODOIST_CSS,
   },
   linear: {
     id: "linear",
     label: "Linear",
-    description: "Command center (dark-first) · Brand violet CTA",
     swatch: "#5e6ad2",
     cssVariables: LINEAR_CSS,
   },
   resend: {
     id: "resend",
     label: "Resend",
-    description: "Developer terminal (dark-first) · Bright blue CTA",
     swatch: "#3b9eff",
     cssVariables: RESEND_CSS,
   },
