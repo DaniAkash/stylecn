@@ -2,7 +2,7 @@ import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Field, FieldLabel } from "@/components/ui/field"
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function ModePicker() {
   const { theme = "system", setTheme } = useTheme()
@@ -10,28 +10,26 @@ export function ModePicker() {
   return (
     <Field>
       <FieldLabel>Mode</FieldLabel>
-      <ToggleGroup
-        type="single"
+      <Tabs
         value={theme}
-        onValueChange={(value) => {
-          if (value) setTheme(value)
-        }}
-        variant="outline"
+        onValueChange={(value) => setTheme(value)}
         className="w-full"
       >
-        <ToggleGroupItem value="light" aria-label="Light" className="flex-1">
-          <SunIcon />
-          <span>Light</span>
-        </ToggleGroupItem>
-        <ToggleGroupItem value="dark" aria-label="Dark" className="flex-1">
-          <MoonIcon />
-          <span>Dark</span>
-        </ToggleGroupItem>
-        <ToggleGroupItem value="system" aria-label="System" className="flex-1">
-          <MonitorIcon />
-          <span>System</span>
-        </ToggleGroupItem>
-      </ToggleGroup>
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="light">
+            <SunIcon />
+            Light
+          </TabsTrigger>
+          <TabsTrigger value="dark">
+            <MoonIcon />
+            Dark
+          </TabsTrigger>
+          <TabsTrigger value="system">
+            <MonitorIcon />
+            System
+          </TabsTrigger>
+        </TabsList>
+      </Tabs>
     </Field>
   )
 }
