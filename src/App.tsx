@@ -33,7 +33,7 @@ export function App() {
               <div className="h-full overflow-auto">
                 <ActiveComponent />
               </div>
-              <div className="dark bg-card/95 absolute right-3 bottom-3 z-20 flex items-center gap-1 rounded-xl p-1 shadow-xl backdrop-blur-xl">
+              <div className="bg-card/95 absolute right-3 bottom-3 z-20 flex items-center gap-1 rounded-xl p-1 shadow-xl ring-1 ring-foreground/10 backdrop-blur-xl">
                 {PREVIEWS.map((p) => (
                   <Button
                     key={p.id}
