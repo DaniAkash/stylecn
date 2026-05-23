@@ -2,12 +2,44 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+@import "./themes/brands.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+    /* Default font stack — overridden per-brand via [data-brand] selectors in brands.css */
+    --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
     --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+
+    /* Raw brand-palette tokens — available as Tailwind utilities regardless of active brand
+       (bg-apple-azure, text-stripe-midnight, bg-fly-electric-violet, etc.). */
+    --color-apple-fog: #f5f5f7;
+    --color-apple-snow: #ffffff;
+    --color-apple-ink: #1d1d1f;
+    --color-apple-graphite: #707070;
+    --color-apple-silver-mist: #e8e8ed;
+    --color-apple-azure: #0071e3;
+    --color-apple-obsidian: #000000;
+
+    --color-stripe-midnight-ink: #061b31;
+    --color-stripe-slate-blue: #50617a;
+    --color-stripe-platinum-white: #ffffff;
+    --color-stripe-porcelain-white: #f8fafd;
+    --color-stripe-powder-blue: #e5edf5;
+    --color-stripe-stone-gray: #d8d6df;
+    --color-stripe-deep-violet: #533afd;
+    --color-stripe-soft-violet: #8087ff;
+
+    --color-fly-cloud-white: #ffffff;
+    --color-fly-ghost-gray: #e7e6f4;
+    --color-fly-lavender-mist: #f1f2f9;
+    --color-fly-grape-vine: #281950;
+    --color-fly-lavender-bloom: #a39ac1;
+    --color-fly-muted-violet: #5e537c;
+    --color-fly-electric-violet: #7c3aed;
+    --color-fly-deep-plum: #191034;
+
+    /* shadcn semantic mapping — values live in :root / .dark / [data-brand] below */
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -39,6 +71,8 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
+
+    /* Default radius scale — overridden per-brand in brands.css */
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
     --radius-lg: var(--radius);
@@ -49,6 +83,7 @@
 }
 
 :root {
+    /* shadcn nova baseline — neutral default, used when no [data-brand] is set */
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
@@ -120,11 +155,13 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    }
+  }
   body {
     @apply bg-background text-foreground;
-    }
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   html {
     @apply font-sans;
-    }
+  }
 }
