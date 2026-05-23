@@ -1,24 +1,22 @@
 export type BrandId =
-  | "default"
-  | "apple"
-  | "stripe"
-  | "fly"
-  | "elevenlabs"
-  | "cursor"
-  | "claude"
-  | "superhuman"
-  | "raycast"
-  | "duolingo"
   | "airbnb"
-  | "wise"
-  | "todoist"
+  | "apple"
+  | "claude"
+  | "cursor"
+  | "duolingo"
+  | "elevenlabs"
+  | "fly"
   | "linear"
+  | "raycast"
   | "resend"
+  | "stripe"
+  | "superhuman"
+  | "todoist"
+  | "wise"
 
 export type Brand = {
   id: BrandId
   label: string
-  description: string
   swatch: string
   cssVariables: string
 }
@@ -400,31 +398,31 @@ const DUOLINGO_CSS = `:root {
 `
 
 const AIRBNB_CSS = `:root {
-  --background: #ffffff;
+  --background: #f7f7f7;
   --foreground: #222222;
   --card: #ffffff;
-  --primary: #222222;
+  --primary: #ff385c;
   --primary-foreground: #ffffff;
-  --muted: #f7f7f7;
-  --muted-foreground: #717171;
-  --destructive: #ff385c;
-  --border: #dddddd;
+  --muted: #ebebeb;
+  --muted-foreground: #6a6a6a;
+  --destructive: #e00b41;
+  --border: #ebebeb;
   --input: #dddddd;
-  --ring: #222222;
-  --radius: 0.75rem;
-  --radius-xl: 12px;
+  --ring: #ff385c;
+  --radius: 0.5rem;
+  --radius-xl: 20px;
 }
 
 .dark {
   --background: #000000;
   --foreground: #ffffff;
   --card: #1a1a1a;
-  --primary: #ffffff;
-  --primary-foreground: #000000;
+  --primary: #ff385c;
+  --primary-foreground: #ffffff;
   --muted: #2a2a2a;
   --muted-foreground: #b0b0b0;
   --border: rgba(255,255,255,0.10);
-  --ring: #ffffff;
+  --ring: #ff385c;
 }
 `
 
@@ -540,121 +538,97 @@ const RESEND_CSS = `:root {
 }
 `
 
-const DEFAULT_CSS = `/* Baseline shadcn nova — the default when no brand is picked. */`
-
 export const brands: Record<BrandId, Brand> = {
-  default: {
-    id: "default",
-    label: "shadcn (default)",
-    description: "Neutral nova baseline",
-    swatch: "#0a0a0a",
-    cssVariables: DEFAULT_CSS,
-  },
   apple: {
     id: "apple",
     label: "Apple",
-    description: "Gallery white canvas · Azure CTA",
     swatch: "#0071e3",
     cssVariables: APPLE_CSS,
   },
   stripe: {
     id: "stripe",
     label: "Stripe",
-    description: "Powder-blue cards · Deep violet CTA",
     swatch: "#533afd",
     cssVariables: STRIPE_CSS,
   },
   fly: {
     id: "fly",
     label: "Fly.io",
-    description: "Lavender mist · Electric violet CTA",
     swatch: "#7c3aed",
     cssVariables: FLY_CSS,
   },
   elevenlabs: {
     id: "elevenlabs",
     label: "ElevenLabs",
-    description: "Eggshell warmth · Black pill CTA",
     swatch: "#000000",
     cssVariables: ELEVENLABS_CSS,
   },
   cursor: {
     id: "cursor",
     label: "Cursor",
-    description: "Warm parchment · Tinted cards · Onyx orange accent",
     swatch: "#f54e00",
     cssVariables: CURSOR_CSS,
   },
   claude: {
     id: "claude",
     label: "Claude",
-    description: "Vellum academic · Flat surfaces · Warm orange CTA",
     swatch: "#d97757",
     cssVariables: CLAUDE_CSS,
   },
   superhuman: {
     id: "superhuman",
     label: "Superhuman",
-    description: "Cream canvas · White card lift · Violet CTA",
     swatch: "#714cb6",
     cssVariables: SUPERHUMAN_CSS,
   },
   raycast: {
     id: "raycast",
     label: "Raycast",
-    description: "Obsidian terminal (dark-first) · Coral CTA",
     swatch: "#ff6363",
     cssVariables: RAYCAST_CSS,
   },
   duolingo: {
     id: "duolingo",
     label: "Duolingo",
-    description: "Playful white · Rounded everything · Vivid green CTA",
     swatch: "#58cc02",
     cssVariables: DUOLINGO_CSS,
   },
   airbnb: {
     id: "airbnb",
     label: "Airbnb",
-    description: "Editorial white · Achromatic black CTA",
-    swatch: "#222222",
+    swatch: "#ff385c",
     cssVariables: AIRBNB_CSS,
   },
   wise: {
     id: "wise",
     label: "Wise",
-    description: "Fintech white · Lime green CTA on dark text",
     swatch: "#9fe870",
     cssVariables: WISE_CSS,
   },
   todoist: {
     id: "todoist",
     label: "Todoist",
-    description: "Warm minimal · Soft red CTA",
     swatch: "#e34432",
     cssVariables: TODOIST_CSS,
   },
   linear: {
     id: "linear",
     label: "Linear",
-    description: "Command center (dark-first) · Brand violet CTA",
     swatch: "#5e6ad2",
     cssVariables: LINEAR_CSS,
   },
   resend: {
     id: "resend",
     label: "Resend",
-    description: "Developer terminal (dark-first) · Bright blue CTA",
     swatch: "#3b9eff",
     cssVariables: RESEND_CSS,
   },
 }
 
 export const brandList: Brand[] = [
-  brands.default,
+  brands.airbnb,
   brands.apple,
   brands.claude,
-  brands.airbnb,
   brands.cursor,
   brands.duolingo,
   brands.elevenlabs,
@@ -668,23 +642,10 @@ export const brandList: Brand[] = [
   brands.wise,
 ]
 
-const BRAND_IDS: BrandId[] = [
-  "default",
-  "apple",
-  "stripe",
-  "fly",
-  "elevenlabs",
-  "cursor",
-  "claude",
-  "superhuman",
-  "raycast",
-  "duolingo",
-  "airbnb",
-  "wise",
-  "todoist",
-  "linear",
-  "resend",
-]
+/** First brand in the alphabetically-sorted list — used when no ?brand= URL param is present. */
+export const DEFAULT_BRAND: BrandId = brandList[0].id
+
+const BRAND_IDS: BrandId[] = brandList.map((b) => b.id)
 
 export function isBrandId(value: string | null | undefined): value is BrandId {
   return typeof value === "string" && (BRAND_IDS as string[]).includes(value)

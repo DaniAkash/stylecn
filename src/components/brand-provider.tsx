@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react"
 
-import { brands, isBrandId, type BrandId } from "@/themes/brand.config"
+import { brands, DEFAULT_BRAND, isBrandId, type BrandId } from "@/themes/brand.config"
 
 type BrandContextValue = {
   brand: BrandId
@@ -10,14 +10,14 @@ type BrandContextValue = {
 const BrandContext = createContext<BrandContextValue | null>(null)
 
 function readBrandFromUrl(): BrandId {
-  if (typeof window === "undefined") return "default"
+  if (typeof window === "undefined") return DEFAULT_BRAND
   const raw = new URLSearchParams(window.location.search).get("brand")
-  return isBrandId(raw) ? raw : "default"
+  return isBrandId(raw) ? raw : DEFAULT_BRAND
 }
 
 function writeBrandToUrl(next: BrandId) {
   const params = new URLSearchParams(window.location.search)
-  if (next === "default") {
+  if (next === DEFAULT_BRAND) {
     params.delete("brand")
   } else {
     params.set("brand", next)
@@ -31,12 +31,7 @@ export function BrandProvider({ children }: { children: React.ReactNode }) {
   const [brand, setBrandState] = useState<BrandId>(() => readBrandFromUrl())
 
   useEffect(() => {
-    const html = document.documentElement
-    if (brand === "default") {
-      html.removeAttribute("data-brand")
-    } else {
-      html.setAttribute("data-brand", brand)
-    }
+    document.documentElement.setAttribute("data-brand", brand)
   }, [brand])
 
   // Resync on browser back/forward so the URL stays the source of truth.
