@@ -1,7 +1,7 @@
 /*
  * Brand themes — each block scoped by [data-brand] on the <html> element.
  * The BrandProvider sets data-brand="apple|stripe|fly|elevenlabs|cursor|
- * anthropic|claude|superhuman|raycast|duolingo|airbnb|wise|todoist|linear|
+ * claude|superhuman|raycast|duolingo|airbnb|wise|todoist|linear|
  * resend". When unset, the shadcn nova baseline in index.css applies.
  *
  * Light vs dark: combine with .dark on the same element, e.g.
@@ -412,88 +412,6 @@
   --sidebar-accent-foreground: #f7f7f4;
   --sidebar-border: rgba(255, 255, 255, 0.10);
   --sidebar-ring: #f7f7f4;
-}
-
-/* ============================================================== */
-/* Anthropic — warm parchment, tinted card lift, warm orange CTA  */
-/* ============================================================== */
-
-:root[data-brand="anthropic"] {
-  --background: #faf9f5;
-  --foreground: #181818;
-  --card: #f0eee6;
-  --card-foreground: #181818;
-  --popover: #ffffff;
-  --popover-foreground: #181818;
-  --primary: #d97757;
-  --primary-foreground: #ffffff;
-  --secondary: #e8e6dc;
-  --secondary-foreground: #181818;
-  --muted: #e8e6dc;
-  --muted-foreground: #6e6e6e;
-  --accent: #e8e6dc;
-  --accent-foreground: #181818;
-  --destructive: #c64a3a;
-  --border: #e0ddd1;
-  --input: #e0ddd1;
-  --ring: #d97757;
-  --chart-1: #d97757;
-  --chart-2: #5b8f7c;
-  --chart-3: #c4a368;
-  --chart-4: #8c6a99;
-  --chart-5: #6e6e6e;
-  --radius: 0.5rem;
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 8px;
-  --radius-2xl: 12px;
-  --radius-3xl: 16px;
-  --radius-4xl: 9999px;
-  --sidebar: #f0eee6;
-  --sidebar-foreground: #181818;
-  --sidebar-primary: #d97757;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e8e6dc;
-  --sidebar-accent-foreground: #181818;
-  --sidebar-border: #e0ddd1;
-  --sidebar-ring: #d97757;
-  --font-sans: "Inter Variable", "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-heading: "Newsreader Variable", "Source Serif Pro", Georgia, "Times New Roman", serif;
-}
-
-.dark[data-brand="anthropic"] {
-  --background: #1a1916;
-  --foreground: #faf9f5;
-  --card: #25231e;
-  --card-foreground: #faf9f5;
-  --popover: #25231e;
-  --popover-foreground: #faf9f5;
-  --primary: #d97757;
-  --primary-foreground: #ffffff;
-  --secondary: #35322b;
-  --secondary-foreground: #faf9f5;
-  --muted: #35322b;
-  --muted-foreground: #a8a59a;
-  --accent: #35322b;
-  --accent-foreground: #faf9f5;
-  --destructive: #e35a48;
-  --border: rgba(255, 255, 255, 0.10);
-  --input: rgba(255, 255, 255, 0.15);
-  --ring: #d97757;
-  --chart-1: #e88a6a;
-  --chart-2: #7fb59f;
-  --chart-3: #d6b88a;
-  --chart-4: #a48dba;
-  --chart-5: #a8a59a;
-  --sidebar: #25231e;
-  --sidebar-foreground: #faf9f5;
-  --sidebar-primary: #d97757;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: rgba(255, 255, 255, 0.06);
-  --sidebar-accent-foreground: #faf9f5;
-  --sidebar-border: rgba(255, 255, 255, 0.10);
-  --sidebar-ring: #d97757;
 }
 
 /* ============================================================== */

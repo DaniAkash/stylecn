@@ -5,7 +5,6 @@ export type BrandId =
   | "fly"
   | "elevenlabs"
   | "cursor"
-  | "anthropic"
   | "claude"
   | "superhuman"
   | "raycast"
@@ -286,34 +285,6 @@ const CURSOR_CSS = `:root {
   --ring: #f7f7f4;
   --sidebar: #2a2622;
   --sidebar-foreground: #f7f7f4;
-}
-`
-
-const ANTHROPIC_CSS = `:root {
-  --background: #faf9f5;
-  --foreground: #181818;
-  --card: #f0eee6;
-  --card-foreground: #181818;
-  --primary: #d97757;
-  --primary-foreground: #ffffff;
-  --muted: #e8e6dc;
-  --muted-foreground: #6e6e6e;
-  --border: #e0ddd1;
-  --input: #e0ddd1;
-  --ring: #d97757;
-  --radius: 0.5rem;
-  --radius-xl: 8px;
-}
-
-.dark {
-  --background: #1a1916;
-  --foreground: #faf9f5;
-  --card: #25231e;
-  --primary: #d97757;
-  --muted: #35322b;
-  --muted-foreground: #a8a59a;
-  --border: rgba(255,255,255,0.10);
-  --ring: #d97757;
 }
 `
 
@@ -614,13 +585,6 @@ export const brands: Record<BrandId, Brand> = {
     swatch: "#f54e00",
     cssVariables: CURSOR_CSS,
   },
-  anthropic: {
-    id: "anthropic",
-    label: "Anthropic",
-    description: "Warm parchment · Serif headings · Warm orange CTA",
-    swatch: "#d97757",
-    cssVariables: ANTHROPIC_CSS,
-  },
   claude: {
     id: "claude",
     label: "Claude",
@@ -689,7 +653,6 @@ export const brands: Record<BrandId, Brand> = {
 export const brandList: Brand[] = [
   brands.default,
   brands.apple,
-  brands.anthropic,
   brands.claude,
   brands.airbnb,
   brands.cursor,
@@ -712,7 +675,6 @@ const BRAND_IDS: BrandId[] = [
   "fly",
   "elevenlabs",
   "cursor",
-  "anthropic",
   "claude",
   "superhuman",
   "raycast",
