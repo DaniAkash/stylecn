@@ -398,31 +398,31 @@ const DUOLINGO_CSS = `:root {
 `
 
 const AIRBNB_CSS = `:root {
-  --background: #ffffff;
+  --background: #f7f7f7;
   --foreground: #222222;
   --card: #ffffff;
-  --primary: #222222;
+  --primary: #ff385c;
   --primary-foreground: #ffffff;
-  --muted: #f7f7f7;
-  --muted-foreground: #717171;
-  --destructive: #ff385c;
-  --border: #dddddd;
+  --muted: #ebebeb;
+  --muted-foreground: #6a6a6a;
+  --destructive: #e00b41;
+  --border: #ebebeb;
   --input: #dddddd;
-  --ring: #222222;
-  --radius: 0.75rem;
-  --radius-xl: 12px;
+  --ring: #ff385c;
+  --radius: 0.5rem;
+  --radius-xl: 20px;
 }
 
 .dark {
   --background: #000000;
   --foreground: #ffffff;
   --card: #1a1a1a;
-  --primary: #ffffff;
-  --primary-foreground: #000000;
+  --primary: #ff385c;
+  --primary-foreground: #ffffff;
   --muted: #2a2a2a;
   --muted-foreground: #b0b0b0;
   --border: rgba(255,255,255,0.10);
-  --ring: #ffffff;
+  --ring: #ff385c;
 }
 `
 
@@ -596,7 +596,7 @@ export const brands: Record<BrandId, Brand> = {
   airbnb: {
     id: "airbnb",
     label: "Airbnb",
-    swatch: "#222222",
+    swatch: "#ff385c",
     cssVariables: AIRBNB_CSS,
   },
   wise: {

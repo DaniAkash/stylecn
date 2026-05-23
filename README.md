@@ -16,7 +16,7 @@ shadcn/ui ships a neutral baseline. Most teams then spend hours tweaking CSS var
 
 | Brand | Primary CTA | Surface treatment | Card radius |
 |---|---|---|---|
-| Airbnb | `#222222` Achromatic black | Pure white, flat surfaces | 12px |
+| Airbnb | `#ff385c` Rausch coral | White cards on Fog `#f7f7f7` canvas | 20px |
 | Apple | `#0071e3` Azure | White cards lifted off Fog `#f5f5f7` canvas | 28px |
 | Claude | `#d97757` Warm orange | Parchment `#faf9f5`, flat (card == canvas) | 10px |
 | Cursor | `#f54e00` Onyx orange | Pebble-gray `#e6e5e0` cards on warm parchment canvas | 4px |
