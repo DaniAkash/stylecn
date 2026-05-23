@@ -16,7 +16,7 @@ export function Customizer() {
   const { meta } = useBrand()
 
   return (
-    <Card className="dark isolate w-full overflow-hidden bg-card/95 shadow-xl backdrop-blur-xl">
+    <Card className="isolate w-full overflow-hidden shadow-md">
       <CardHeader className="gap-1">
         <CardTitle className="text-sm">Theme</CardTitle>
         <CardDescription className="text-xs">
