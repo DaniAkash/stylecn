@@ -1,3 +1,5 @@
+<img src="public/icon.png" alt="stylecn" width="120" height="120" />
+
 # stylecn
 
 > Brand-themed presets for [shadcn/ui](https://ui.shadcn.com).
