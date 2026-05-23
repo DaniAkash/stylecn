@@ -1,13 +1,29 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+    /* Typography — Söhne primary (Stripe's typeface), falls back to Inter / system-ui. */
+    --font-sans: "sohne-var", "Söhne", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-heading: "sohne-var", "Söhne", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    /* Stripe raw palette — usable as bg-powder-blue, text-midnight-ink, border-stone-gray, bg-deep-violet, etc. */
+    --color-midnight-ink: #061b31;
+    --color-slate-blue: #50617a;
+    --color-ghost-gray: #64748d;
+    --color-platinum-white: #ffffff;
+    --color-porcelain-white: #f8fafd;
+    --color-powder-blue: #e5edf5;
+    --color-stone-gray: #d8d6df;
+    --color-deep-violet: #533afd;
+    --color-washed-violet: #b9b9f9;
+    --color-soft-violet: #8087ff;
+    --color-accent-green: #81b81a;
+    --color-vibrant-orange: #ff6118;
+
+    /* shadcn semantic mapping — values live in :root / .dark below. */
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -39,92 +55,105 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
+
+    /* Radius scale rewritten for Stripe geometry: 4px on inputs/buttons, 6px on cards. */
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-lg: 4px;
+    --radius-xl: 6px;
+    --radius-2xl: 8px;
+    --radius-3xl: 10px;
+    --radius-4xl: 12px;
+
+    /* Stripe shadow scale — soft diffuse lifts, no hard edges. */
+    --shadow-sm: rgba(23, 23, 23, 0.06) 0px 3px 6px 0px;
+    --shadow-md: rgba(50, 50, 93, 0.08) 0px 6px 12px 0px;
+    --shadow-lg: rgba(50, 50, 93, 0.12) 0px 16px 32px 0px;
+    --shadow-xl: rgba(0, 0, 0, 0.2) 0px 0px 32px 8px;
 }
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    /* ---------- Stripe light theme — platinum canvas, powder-blue tinted cards, deep violet CTA ---------- */
+    --background: #ffffff;                  /* Platinum White — canvas */
+    --foreground: #061b31;                  /* Midnight Ink — primary text */
+    --card: #e5edf5;                        /* Powder Blue — default tinted card */
+    --card-foreground: #061b31;
+    --popover: #ffffff;                     /* Popovers stay pure white for readability */
+    --popover-foreground: #061b31;
+    --primary: #533afd;                     /* Deep Violet — sole CTA color */
+    --primary-foreground: #ffffff;
+    --secondary: #f8fafd;                   /* Porcelain White — secondary surface */
+    --secondary-foreground: #061b31;
+    --muted: #f8fafd;                       /* Porcelain White — muted fill */
+    --muted-foreground: #50617a;            /* Slate Blue — secondary text */
+    --accent: #e5edf5;                      /* Powder Blue — hover / accent fill */
+    --accent-foreground: #061b31;
+    --destructive: #ff6118;                 /* Vibrant Orange — destructive / alert */
+    --border: #d8d6df;                      /* Stone Gray — dividers */
+    --input: #d8d6df;
+    --ring: #533afd;                        /* Deep Violet focus ring */
+    --chart-1: #533afd;                     /* Deep Violet */
+    --chart-2: #8087ff;                     /* Soft Violet */
+    --chart-3: #81b81a;                     /* Accent Green */
+    --chart-4: #ff6118;                     /* Vibrant Orange */
+    --chart-5: #50617a;                     /* Slate Blue */
+    --radius: 0.25rem;                      /* 4px — Stripe's small-control radius */
+    --sidebar: #f8fafd;                     /* Porcelain — sidebar lifts subtly off white canvas */
+    --sidebar-foreground: #061b31;
+    --sidebar-primary: #533afd;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #e5edf5;              /* Powder Blue — nav row hover */
+    --sidebar-accent-foreground: #061b31;
+    --sidebar-border: #d8d6df;
+    --sidebar-ring: #533afd;
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    /* ---------- Stripe dark theme — Midnight Ink canvas, lifted-navy cards, Soft Violet CTA ---------- */
+    --background: #061b31;                  /* Midnight Ink — dark canvas */
+    --foreground: #ffffff;
+    --card: #0a2541;                        /* Lifted midnight — elevated card */
+    --card-foreground: #ffffff;
+    --popover: #0a2541;
+    --popover-foreground: #ffffff;
+    --primary: #8087ff;                     /* Soft Violet lifts for dark contrast */
+    --primary-foreground: #061b31;
+    --secondary: #0a2541;
+    --secondary-foreground: #ffffff;
+    --muted: #0a2541;
+    --muted-foreground: #a5b4cb;            /* Lifted Slate — secondary text on dark */
+    --accent: #0a2541;
+    --accent-foreground: #ffffff;
+    --destructive: #ff6118;
+    --border: rgba(255, 255, 255, 0.10);
+    --input: rgba(255, 255, 255, 0.15);
+    --ring: #8087ff;
+    --chart-1: #8087ff;                     /* Soft Violet */
+    --chart-2: #b9b9f9;                     /* Washed Violet */
+    --chart-3: #81b81a;                     /* Accent Green */
+    --chart-4: #ff6118;                     /* Vibrant Orange */
+    --chart-5: #a5b4cb;                     /* Lifted Slate */
+    --sidebar: #0a2541;
+    --sidebar-foreground: #ffffff;
+    --sidebar-primary: #8087ff;
+    --sidebar-primary-foreground: #061b31;
+    --sidebar-accent: rgba(255, 255, 255, 0.06);
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-border: rgba(255, 255, 255, 0.10);
+    --sidebar-ring: #8087ff;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    }
+  }
   body {
     @apply bg-background text-foreground;
-    }
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01" on, "tnum";
+  }
   html {
     @apply font-sans;
-    }
+  }
 }
