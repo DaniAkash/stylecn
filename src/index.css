@@ -92,8 +92,20 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
+}
 
-    /* Default radius scale — overridden per-brand in brands.css */
+/*
+ * Radius scale is intentionally NOT in the @theme inline block above.
+ * Tailwind v4's @theme inline bakes calc()/literal values directly into
+ * the generated utility classes (e.g. .rounded-xl becomes
+ * `border-radius: calc(var(--radius) * 1.4)`), which means brand-level
+ * overrides of --radius-xl never reach the utility class.
+ *
+ * Using plain @theme here emits the radius variables to :root AND
+ * generates utility classes that reference var(--radius-xl), so brand
+ * selectors in brands.css can override the scale per-brand.
+ */
+@theme {
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
     --radius-lg: var(--radius);
