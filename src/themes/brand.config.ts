@@ -504,12 +504,12 @@ const LINEAR_CSS = `:root {
   --background: #08090a;
   --foreground: #f5f5f5;
   --card: #0f1011;
-  --primary: #e4f222;
-  --primary-foreground: #08090a;
+  --primary: #5e6ad2;
+  --primary-foreground: #ffffff;
   --muted: #1a1b1d;
   --muted-foreground: #8a8f98;
   --border: rgba(255,255,255,0.10);
-  --ring: #e4f222;
+  --ring: #5e6ad2;
 }
 `
 
@@ -637,7 +637,7 @@ export const brands: Record<BrandId, Brand> = {
   linear: {
     id: "linear",
     label: "Linear",
-    description: "Command center (dark-first) · Neon lime CTA in dark",
+    description: "Command center (dark-first) · Brand violet CTA",
     swatch: "#5e6ad2",
     cssVariables: LINEAR_CSS,
   },
