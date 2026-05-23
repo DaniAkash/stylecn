@@ -6,7 +6,7 @@
 
 A gallery of real-world brand designs — Apple, Stripe, Linear, Airbnb, and more — applied to the full shadcn/ui component set. Browse the live preview, pick the brand you like, copy the CSS variables. Drop them into your own shadcn project.
 
-**Live preview:** `https://stylecn.daniakash.com` _(placeholder — domain TBD)_
+**Live preview:** <https://daniakash.github.io/stylecn/>
 
 ## Why
 
