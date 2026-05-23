@@ -1,4 +1,4 @@
-export type BrandId = "default" | "apple" | "stripe" | "fly" | "elevenlabs"
+export type BrandId = "default" | "apple" | "stripe" | "fly" | "elevenlabs" | "cursor"
 
 export type Brand = {
   id: BrandId
@@ -220,6 +220,59 @@ const ELEVENLABS_CSS = `:root {
 }
 `
 
+const CURSOR_CSS = `:root {
+  --background: #f7f7f4;
+  --foreground: #262510;
+  --card: #e6e5e0;
+  --card-foreground: #262510;
+  --popover: #e6e5e0;
+  --popover-foreground: #262510;
+  --primary: #262510;
+  --primary-foreground: #f7f7f4;
+  --secondary: #cdcdc9;
+  --secondary-foreground: #262510;
+  --muted: #cdcdc9;
+  --muted-foreground: #7a7974;
+  --accent: #cdcdc9;
+  --accent-foreground: #262510;
+  --destructive: #f54e00;
+  --border: #cdcdc9;
+  --input: #7a7974;
+  --ring: #262510;
+  --chart-1: #f54e00;
+  --chart-2: #34785c;
+  --chart-3: #c08532;
+  --chart-4: #4ade80;
+  --chart-5: #7a7974;
+  --sidebar: #e6e5e0;
+  --sidebar-foreground: #262510;
+  --sidebar-primary: #262510;
+  --sidebar-primary-foreground: #f7f7f4;
+  --sidebar-accent: #cdcdc9;
+  --sidebar-accent-foreground: #262510;
+  --sidebar-border: #cdcdc9;
+  --sidebar-ring: #262510;
+  --radius: 0.25rem;
+  --radius-xl: 4px;
+}
+
+.dark {
+  --background: #1a1815;
+  --foreground: #f7f7f4;
+  --card: #2a2622;
+  --card-foreground: #f7f7f4;
+  --primary: #f7f7f4;
+  --primary-foreground: #262510;
+  --muted: #3a3530;
+  --muted-foreground: #a8a59f;
+  --border: rgba(255,255,255,0.10);
+  --input: rgba(255,255,255,0.15);
+  --ring: #f7f7f4;
+  --sidebar: #2a2622;
+  --sidebar-foreground: #f7f7f4;
+}
+`
+
 const DEFAULT_CSS = `/* Baseline shadcn nova — the default when no brand is picked. */`
 
 export const brands: Record<BrandId, Brand> = {
@@ -258,6 +311,13 @@ export const brands: Record<BrandId, Brand> = {
     swatch: "#000000",
     cssVariables: ELEVENLABS_CSS,
   },
+  cursor: {
+    id: "cursor",
+    label: "Cursor",
+    description: "Warm parchment · Tinted cards · Onyx orange accent",
+    swatch: "#f54e00",
+    cssVariables: CURSOR_CSS,
+  },
 }
 
 export const brandList: Brand[] = [
@@ -266,6 +326,7 @@ export const brandList: Brand[] = [
   brands.stripe,
   brands.fly,
   brands.elevenlabs,
+  brands.cursor,
 ]
 
 export function isBrandId(value: string | null | undefined): value is BrandId {
@@ -274,6 +335,7 @@ export function isBrandId(value: string | null | undefined): value is BrandId {
     value === "apple" ||
     value === "stripe" ||
     value === "fly" ||
-    value === "elevenlabs"
+    value === "elevenlabs" ||
+    value === "cursor"
   )
 }

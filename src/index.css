@@ -49,6 +49,17 @@
     --color-elevenlabs-signal-blue: #0447ff;
     --color-elevenlabs-ember: #ff4704;
 
+    --color-cursor-canvas-parchment: #f7f7f4;
+    --color-cursor-inkwell: #262510;
+    --color-cursor-muted-stone: #7a7974;
+    --color-cursor-deep-shadow: #141414;
+    --color-cursor-pebble-gray: #e6e5e0;
+    --color-cursor-onyx-outline: #f54e00;
+    --color-cursor-chartreuse-alert: #4ade80;
+    --color-cursor-goldenrod-accent: #c08532;
+    --color-cursor-forest-green-action: #34785c;
+    --color-cursor-highlight-beige: #cdcdc9;
+
     /* shadcn semantic mapping — values live in :root / .dark / [data-brand] below */
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
