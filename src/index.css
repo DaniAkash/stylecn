@@ -1,13 +1,28 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+    /* Typography — Fricolage Grotesque body, Mackinac display. Both proprietary; fallback to Inter / Georgia. */
+    --font-sans: "Fricolage Grotesque", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-heading: "Mackinac", "Recoleta", "Source Serif Pro", Georgia, "Times New Roman", serif;
+
+    /* Fly raw palette — usable as bg-cloud-white, text-grape-vine, bg-electric-violet, etc. */
+    --color-cloud-white: #ffffff;
+    --color-ghost-gray: #e7e6f4;
+    --color-lavender-mist: #f1f2f9;
+    --color-grape-vine: #281950;
+    --color-lavender-bloom: #a39ac1;
+    --color-muted-violet: #5e537c;
+    --color-electric-violet: #7c3aed;
+    --color-deep-plum: #191034;
+    --color-success-green: #10b981;
+    --color-info-blue: #3b82f6;
+    --color-warning-orange: #f59e0b;
+
+    /* shadcn semantic mapping — values live in :root / .dark below. */
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -39,92 +54,105 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
+
+    /* Radius scale: 4px subtle, 10px nav, 16px default/card (Fly's signature), pill at the top end. */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+    --radius-3xl: 24px;
+    --radius-4xl: 9999px;
+
+    /* Fly shadow scale — violet-tinted, soft, the playful elevation. */
+    --shadow-sm: rgba(91, 33, 182, 0.10) 0px 5px 5px -2px, rgba(91, 33, 182, 0.10) 0px 2px 4px -2px;
+    --shadow-md: rgba(32, 34, 55, 0.075) 0px 0px 0px 1px, rgba(32, 34, 55, 0.05) 0px 10px 15px -3px;
+    --shadow-lg: rgba(32, 34, 55, 0.075) 0px 0px 0px 1px, rgba(32, 34, 55, 0.05) 0px 10px 15px -3px, rgba(32, 34, 55, 0.05) 0px 4px 6px -4px;
+    --shadow-inner-ring: rgba(67, 56, 202, 0.25) 0px 0px 0px 1px inset;
 }
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    /* ---------- Fly light theme — cloud-white canvas, lavender-mist sidebar, electric violet CTA ---------- */
+    --background: #ffffff;                  /* Cloud White — canvas */
+    --foreground: #281950;                  /* Grape Vine — primary text / headings */
+    --card: #ffffff;                        /* Cloud White — cards float on the canvas via ring + radius */
+    --card-foreground: #281950;
+    --popover: #ffffff;
+    --popover-foreground: #281950;
+    --primary: #7c3aed;                     /* Electric Violet — sole CTA */
+    --primary-foreground: #ffffff;
+    --secondary: #f1f2f9;                   /* Lavender Mist — secondary surface */
+    --secondary-foreground: #281950;
+    --muted: #f1f2f9;                       /* Lavender Mist — muted fill */
+    --muted-foreground: #5e537c;            /* Muted Violet — body text */
+    --accent: #e7e6f4;                      /* Ghost Gray — hover / accent fill */
+    --accent-foreground: #281950;
+    --destructive: #f59e0b;                 /* Warning Orange — Fly's alert color (no dedicated red) */
+    --border: #e7e6f4;                      /* Ghost Gray — subtle borders / dividers */
+    --input: #e7e6f4;
+    --ring: #7c3aed;                        /* Electric Violet focus ring */
+    --chart-1: #7c3aed;                     /* Electric Violet */
+    --chart-2: #3b82f6;                     /* Info Blue */
+    --chart-3: #10b981;                     /* Success Green */
+    --chart-4: #f59e0b;                     /* Warning Orange */
+    --chart-5: #a39ac1;                     /* Lavender Bloom */
+    --radius: 0.625rem;                     /* 10px — Fly's nav-item radius as the base */
+    --sidebar: #f1f2f9;                     /* Lavender Mist — sidebar tints slightly off canvas */
+    --sidebar-foreground: #281950;
+    --sidebar-primary: #7c3aed;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #e7e6f4;              /* Ghost Gray — nav row hover */
+    --sidebar-accent-foreground: #281950;
+    --sidebar-border: #e7e6f4;
+    --sidebar-ring: #7c3aed;
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    /* ---------- Fly dark theme — Deep Plum canvas, Grape Vine cards, Electric Violet CTA still rules ---------- */
+    --background: #191034;                  /* Deep Plum — Fly's grounded footer canvas */
+    --foreground: #ffffff;
+    --card: #281950;                        /* Grape Vine — lifted dark card */
+    --card-foreground: #ffffff;
+    --popover: #281950;
+    --popover-foreground: #ffffff;
+    --primary: #7c3aed;                     /* Electric Violet — pops against deep plum */
+    --primary-foreground: #ffffff;
+    --secondary: #281950;
+    --secondary-foreground: #ffffff;
+    --muted: #281950;
+    --muted-foreground: #a39ac1;            /* Lavender Bloom — perfect muted text on dark */
+    --accent: #281950;
+    --accent-foreground: #ffffff;
+    --destructive: #f59e0b;
+    --border: rgba(255, 255, 255, 0.10);
+    --input: rgba(255, 255, 255, 0.15);
+    --ring: #7c3aed;
+    --chart-1: #a78bfa;                     /* Lifted Electric Violet */
+    --chart-2: #60a5fa;                     /* Lifted Info Blue */
+    --chart-3: #34d399;                     /* Lifted Success Green */
+    --chart-4: #fbbf24;                     /* Lifted Warning Orange */
+    --chart-5: #c4b5fd;                     /* Soft violet — accent */
+    --sidebar: #281950;                     /* Grape Vine sidebar lifts off plum canvas */
+    --sidebar-foreground: #ffffff;
+    --sidebar-primary: #7c3aed;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: rgba(255, 255, 255, 0.06);
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-border: rgba(255, 255, 255, 0.10);
+    --sidebar-ring: #7c3aed;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    }
+  }
   body {
     @apply bg-background text-foreground;
-    }
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.025em;
+  }
   html {
     @apply font-sans;
-    }
+  }
 }
