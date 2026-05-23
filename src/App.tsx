@@ -22,7 +22,7 @@ export function App() {
     PREVIEWS.find((p) => p.id === active)?.Component ?? PreviewExample
 
   return (
-    <ThemeProvider defaultTheme="system" storageKey="apple-shadcn-theme">
+    <ThemeProvider defaultTheme="system" storageKey="stylecn-theme">
       <TooltipProvider delayDuration={150}>
         <BrandProvider>
           <div className="bg-background flex h-svh w-full gap-3 p-3 md:gap-4 md:p-4">
