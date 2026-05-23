@@ -1,7 +1,7 @@
 /*
  * Brand themes — each block scoped by [data-brand] on the <html> element.
- * The BrandProvider sets data-brand="apple|stripe|fly". When unset, the
- * shadcn nova baseline in index.css applies.
+ * The BrandProvider sets data-brand="apple|stripe|fly|elevenlabs". When
+ * unset, the shadcn nova baseline in index.css applies.
  *
  * Light vs dark: combine with .dark on the same element, e.g.
  *   .dark[data-brand="apple"] { ... }
@@ -248,4 +248,85 @@
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: rgba(255, 255, 255, 0.10);
   --sidebar-ring: #7c3aed;
+}
+
+/* ============================================================== */
+/* ElevenLabs                                                     */
+/* ============================================================== */
+
+:root[data-brand="elevenlabs"] {
+  --background: #fdfcfc;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #fdfcfc;
+  --secondary: #f5f3f1;
+  --secondary-foreground: #000000;
+  --muted: #f5f3f1;
+  --muted-foreground: #777169;
+  --accent: #f5f3f1;
+  --accent-foreground: #000000;
+  --destructive: #ff4704;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #000000;
+  --chart-1: #0447ff;
+  --chart-2: #ff4704;
+  --chart-3: #777169;
+  --chart-4: #a59f97;
+  --chart-5: #b1b0b0;
+  --sidebar: #fdfcfc;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #000000;
+  --sidebar-primary-foreground: #fdfcfc;
+  --sidebar-accent: #f5f3f1;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #000000;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-4xl: 9999px;
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Waldenburg", "Cormorant Garamond", "Libre Baskerville", Georgia, "Times New Roman", serif;
+}
+
+.dark[data-brand="elevenlabs"] {
+  --background: #0a0908;
+  --foreground: #fdfcfc;
+  --card: #1a1817;
+  --card-foreground: #fdfcfc;
+  --popover: #1a1817;
+  --popover-foreground: #fdfcfc;
+  --primary: #fdfcfc;
+  --primary-foreground: #000000;
+  --secondary: #2a2825;
+  --secondary-foreground: #fdfcfc;
+  --muted: #2a2825;
+  --muted-foreground: #a59f97;
+  --accent: #2a2825;
+  --accent-foreground: #fdfcfc;
+  --destructive: #ff4704;
+  --border: rgba(255, 255, 255, 0.10);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #fdfcfc;
+  --chart-1: #2997ff;
+  --chart-2: #ff8a4d;
+  --chart-3: #d4cfc8;
+  --chart-4: #b1b0b0;
+  --chart-5: #fdfcfc;
+  --sidebar: #1a1817;
+  --sidebar-foreground: #fdfcfc;
+  --sidebar-primary: #fdfcfc;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: rgba(255, 255, 255, 0.06);
+  --sidebar-accent-foreground: #fdfcfc;
+  --sidebar-border: rgba(255, 255, 255, 0.10);
+  --sidebar-ring: #fdfcfc;
 }

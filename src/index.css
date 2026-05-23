@@ -39,6 +39,16 @@
     --color-fly-electric-violet: #7c3aed;
     --color-fly-deep-plum: #191034;
 
+    --color-elevenlabs-eggshell: #fdfcfc;
+    --color-elevenlabs-powder: #f5f3f1;
+    --color-elevenlabs-chalk: #e5e5e5;
+    --color-elevenlabs-fog: #b1b0b0;
+    --color-elevenlabs-gravel: #777169;
+    --color-elevenlabs-slate: #a59f97;
+    --color-elevenlabs-obsidian: #000000;
+    --color-elevenlabs-signal-blue: #0447ff;
+    --color-elevenlabs-ember: #ff4704;
+
     /* shadcn semantic mapping — values live in :root / .dark / [data-brand] below */
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);

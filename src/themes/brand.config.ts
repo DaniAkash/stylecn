@@ -1,4 +1,4 @@
-export type BrandId = "default" | "apple" | "stripe" | "fly"
+export type BrandId = "default" | "apple" | "stripe" | "fly" | "elevenlabs"
 
 export type Brand = {
   id: BrandId
@@ -167,6 +167,59 @@ const FLY_CSS = `:root {
 }
 `
 
+const ELEVENLABS_CSS = `:root {
+  --background: #fdfcfc;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #fdfcfc;
+  --secondary: #f5f3f1;
+  --secondary-foreground: #000000;
+  --muted: #f5f3f1;
+  --muted-foreground: #777169;
+  --accent: #f5f3f1;
+  --accent-foreground: #000000;
+  --destructive: #ff4704;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #000000;
+  --chart-1: #0447ff;
+  --chart-2: #ff4704;
+  --chart-3: #777169;
+  --chart-4: #a59f97;
+  --chart-5: #b1b0b0;
+  --sidebar: #fdfcfc;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #000000;
+  --sidebar-primary-foreground: #fdfcfc;
+  --sidebar-accent: #f5f3f1;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #000000;
+  --radius: 0.625rem;
+  --radius-xl: 16px;
+}
+
+.dark {
+  --background: #0a0908;
+  --foreground: #fdfcfc;
+  --card: #1a1817;
+  --card-foreground: #fdfcfc;
+  --primary: #fdfcfc;
+  --primary-foreground: #000000;
+  --muted: #2a2825;
+  --muted-foreground: #a59f97;
+  --border: rgba(255,255,255,0.10);
+  --input: rgba(255,255,255,0.15);
+  --ring: #fdfcfc;
+  --sidebar: #1a1817;
+  --sidebar-foreground: #fdfcfc;
+}
+`
+
 const DEFAULT_CSS = `/* Baseline shadcn nova — the default when no brand is picked. */`
 
 export const brands: Record<BrandId, Brand> = {
@@ -198,6 +251,13 @@ export const brands: Record<BrandId, Brand> = {
     swatch: "#7c3aed",
     cssVariables: FLY_CSS,
   },
+  elevenlabs: {
+    id: "elevenlabs",
+    label: "ElevenLabs",
+    description: "Eggshell warmth · Black pill CTA",
+    swatch: "#000000",
+    cssVariables: ELEVENLABS_CSS,
+  },
 }
 
 export const brandList: Brand[] = [
@@ -205,8 +265,15 @@ export const brandList: Brand[] = [
   brands.apple,
   brands.stripe,
   brands.fly,
+  brands.elevenlabs,
 ]
 
 export function isBrandId(value: string | null | undefined): value is BrandId {
-  return value === "default" || value === "apple" || value === "stripe" || value === "fly"
+  return (
+    value === "default" ||
+    value === "apple" ||
+    value === "stripe" ||
+    value === "fly" ||
+    value === "elevenlabs"
+  )
 }
