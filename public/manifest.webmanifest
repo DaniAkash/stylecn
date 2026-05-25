@@ -1,0 +1,33 @@
+{
+  "name": "stylecn — Brand-themed presets for shadcn/ui",
+  "short_name": "stylecn",
+  "description": "Live gallery of brand-themed presets for shadcn/ui. Pick a brand, copy the CSS, ship the look.",
+  "start_url": "/stylecn/",
+  "scope": "/stylecn/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/stylecn/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/stylecn/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/stylecn/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/stylecn/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

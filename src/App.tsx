@@ -25,8 +25,18 @@ export function App() {
     <ThemeProvider defaultTheme="system" storageKey="stylecn-theme">
       <TooltipProvider delayDuration={150}>
         <BrandProvider>
+          <header className="sr-only">
+            <h1>stylecn — Brand-themed presets for shadcn/ui</h1>
+            <p>
+              Live gallery of 14 brand-themed presets for shadcn/ui — including
+              Apple, Stripe, Linear, Airbnb, Cursor, Resend, Raycast, Claude,
+              Duolingo, ElevenLabs, Fly.io, Superhuman, Todoist and Wise. Pick a
+              brand, preview every shadcn/ui component, copy the CSS variables,
+              drop them into your own project.
+            </p>
+          </header>
           <div className="bg-background flex h-svh w-full gap-3 p-3 md:gap-4 md:p-4">
-            <aside className="w-60 shrink-0 md:w-64">
+            <aside className="w-60 shrink-0 md:w-64" aria-label="Brand picker">
               <Customizer />
             </aside>
             <main className="ring-foreground/10 relative isolate min-w-0 flex-1 overflow-hidden rounded-2xl ring-1">

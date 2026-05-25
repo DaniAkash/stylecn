@@ -3,14 +3,145 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+
+    <title>stylecn — Brand-themed presets for shadcn/ui</title>
+    <meta
+      name="description"
+      content="Live gallery of brand-themed presets for shadcn/ui — Apple, Stripe, Linear, Airbnb and 10 more. Pick a brand, preview every component, copy the CSS variables, ship the look."
+    />
+    <link rel="canonical" href="https://daniakash.github.io/stylecn/" />
+
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="description" content="Brand-themed presets for shadcn/ui — Apple, Stripe, Linear, Airbnb, and more, ready to copy." />
-    <title>stylecn</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="stylecn" />
+    <meta property="og:title" content="stylecn — Brand-themed presets for shadcn/ui" />
+    <meta
+      property="og:description"
+      content="Live gallery of brand-themed presets for shadcn/ui — Apple, Stripe, Linear, Airbnb and 10 more. Pick a brand, preview every component, copy the CSS variables."
+    />
+    <meta property="og:url" content="https://daniakash.github.io/stylecn/" />
+    <meta property="og:image" content="https://daniakash.github.io/stylecn/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="stylecn — Brand-themed presets for shadcn/ui" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="stylecn — Brand-themed presets for shadcn/ui" />
+    <meta
+      name="twitter:description"
+      content="Live gallery of brand-themed presets for shadcn/ui — Apple, Stripe, Linear, Airbnb and 10 more. Pick a brand, copy the CSS, ship the look."
+    />
+    <meta name="twitter:image" content="https://daniakash.github.io/stylecn/og-image.png" />
+    <meta name="twitter:image:alt" content="stylecn — Brand-themed presets for shadcn/ui" />
+    <meta name="twitter:creator" content="@dani_akash_" />
+    <meta name="twitter:site" content="@dani_akash_" />
+
+    <meta name="author" content="Dani Akash" />
+    <meta name="application-name" content="stylecn" />
+    <meta name="apple-mobile-web-app-title" content="stylecn" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://daniakash.github.io/stylecn/#website",
+            "url": "https://daniakash.github.io/stylecn/",
+            "name": "stylecn",
+            "description": "Brand-themed presets for shadcn/ui — Apple, Stripe, Linear, Airbnb, and more. Copy the CSS, ship the look.",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://daniakash.com/#person" }
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://daniakash.github.io/stylecn/#app",
+            "name": "stylecn",
+            "url": "https://daniakash.github.io/stylecn/",
+            "applicationCategory": "DeveloperApplication",
+            "applicationSubCategory": "DesignSystem",
+            "operatingSystem": "Any (web-based)",
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
+            "description": "Live gallery of brand-themed presets for shadcn/ui. Browse 14 real-world brand designs — Apple, Stripe, Linear, Airbnb, Cursor, Resend, Raycast and more — applied to the full shadcn/ui component set, then copy the CSS variables straight into your project.",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "license": "https://opensource.org/licenses/MIT",
+            "isAccessibleForFree": true,
+            "creator": { "@id": "https://daniakash.com/#person" },
+            "image": "https://daniakash.github.io/stylecn/og-image.png",
+            "keywords": "shadcn, shadcn-ui, tailwindcss, design system, design tokens, themes, react, css variables, ui components"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://daniakash.com/#person",
+            "name": "Dani Akash",
+            "url": "https://daniakash.com",
+            "sameAs": [
+              "https://github.com/DaniAkash",
+              "https://x.com/dani_akash_"
+            ]
+          },
+          {
+            "@type": "SoftwareSourceCode",
+            "name": "stylecn",
+            "codeRepository": "https://github.com/DaniAkash/stylecn",
+            "programmingLanguage": ["TypeScript", "CSS"],
+            "runtimePlatform": "Web",
+            "license": "https://opensource.org/licenses/MIT",
+            "author": { "@id": "https://daniakash.com/#person" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <header
+        style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"
+      >
+        <h1>stylecn — Brand-themed presets for shadcn/ui</h1>
+        <p>
+          Live gallery of 14 brand-themed presets for shadcn/ui — Apple,
+          Stripe, Linear, Airbnb, Cursor, Resend, Raycast, Claude, Duolingo,
+          ElevenLabs, Fly.io, Superhuman, Todoist and Wise. Pick a brand,
+          preview every shadcn/ui component, copy the CSS variables straight
+          into your project.
+        </p>
+        <h2>Available brands</h2>
+        <ul>
+          <li>Airbnb — Rausch coral on Fog canvas</li>
+          <li>Apple — Azure CTA on lifted white cards</li>
+          <li>Claude — Warm orange on parchment</li>
+          <li>Cursor — Onyx orange on pebble-gray cards</li>
+          <li>Duolingo — Vivid green, Nunito sans</li>
+          <li>ElevenLabs — Obsidian CTA on eggshell</li>
+          <li>Fly.io — Electric violet on lavender mist</li>
+          <li>Linear — Brand violet, dark-first command center</li>
+          <li>Raycast — Coral on obsidian terminal</li>
+          <li>Resend — Sky blue developer terminal</li>
+          <li>Stripe — Deep violet on powder-blue cards</li>
+          <li>Superhuman — Violet on cream</li>
+          <li>Todoist — Soft red on warm white</li>
+          <li>Wise — Lime green on white with dark text</li>
+        </ul>
+        <h2>How it works</h2>
+        <p>
+          Open the gallery, switch between brands in the sidebar, see every
+          shadcn/ui component re-themed in real time, then click Copy CSS to
+          grab the variables block. Paste it into your project's globals.css
+          and you ship the brand's look the same day. Source on
+          <a href="https://github.com/DaniAkash/stylecn">GitHub</a>.
+        </p>
+      </header>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
