@@ -2,6 +2,7 @@ import { useState } from "react"
 
 import PreviewExample from "@/components/blocks/preview"
 import Preview02Example from "@/components/blocks/preview-02"
+import Preview03Example from "@/components/blocks/preview-03"
 import { BrandProvider } from "@/components/brand-provider"
 import { Customizer } from "@/components/customizer/Customizer"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -12,6 +13,7 @@ import { TooltipProvider } from "@/components/ui/tooltip"
 const PREVIEWS = [
   { id: "preview", label: "01", Component: PreviewExample },
   { id: "preview-02", label: "02", Component: Preview02Example },
+  { id: "preview-03", label: "03", Component: Preview03Example },
 ] as const
 
 type PreviewId = (typeof PREVIEWS)[number]["id"]
