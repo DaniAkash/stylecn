@@ -1,6 +1,7 @@
 import { BrandDnaStrip } from "@/components/customizer/BrandDnaStrip"
 import { BrandPicker } from "@/components/customizer/BrandPicker"
 import { CopyCss } from "@/components/customizer/CopyCss"
+import { InstallCommand } from "@/components/customizer/InstallCommand"
 import { ModePicker } from "@/components/customizer/ModePicker"
 import {
   Card,
@@ -23,6 +24,8 @@ export function Customizer() {
           <BrandPicker />
           <FieldSeparator />
           <ModePicker />
+          <FieldSeparator />
+          <InstallCommand />
         </FieldGroup>
       </CardContent>
       <CardFooter>
