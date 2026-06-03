@@ -39,31 +39,33 @@ More coming — see [Adding a brand](#adding-a-brand).
 
 ## Use a theme in your project
 
-Three ways, pick the one that fits:
+Two ways, pick the one that fits.
 
-### 1. Copy & paste (fastest)
+### 1. shadcn CLI (recommended)
 
-Visit the live preview, pick a brand, click **Copy CSS**. Paste the block into your project's `index.css` (or `globals.css`). Done.
-
-### 2. shadcn CLI _(planned)_
+Each brand is a shadcn GitHub registry item. Install any brand straight into your shadcn project:
 
 ```sh
-bunx shadcn add @daniakash/stylecn/linear
+bunx --bun shadcn@latest add DaniAkash/stylecn/airbnb   # bun
+pnpm dlx shadcn@latest add DaniAkash/stylecn/airbnb     # pnpm
+npx shadcn@latest add DaniAkash/stylecn/airbnb          # npm
 ```
 
-Not yet published as a registry. Coming once the brand set stabilizes.
+Replace `airbnb` with any brand id: `airbnb`, `apple`, `claude`, `cursor`, `duolingo`, `elevenlabs`, `fly`, `linear`, `raycast`, `resend`, `stripe`, `superhuman`, `todoist`, `wise`.
 
-### 3. npm package _(planned)_
+The CLI merges the brand's CSS variables into your project's `globals.css`, npm-installs any font dependencies, and prints any usage notes. Restart `dev` and your shadcn app wears the brand.
+
+Pin to a release tag for stability:
 
 ```sh
-bun add @daniakash/stylecn
+bunx --bun shadcn@latest add DaniAkash/stylecn/airbnb#v1.0.0
 ```
 
-```css
-@import "@daniakash/stylecn/linear.css";
-```
+Requirements: a shadcn project on Tailwind v4 with a `components.json` at the root.
 
-Not yet published.
+### 2. Copy & paste
+
+Visit the [live preview](https://daniakash.github.io/stylecn/), pick a brand, click **Copy CSS**. Paste the block into your project's `index.css` (or `globals.css`). Done.
 
 ## Local development
 
@@ -77,12 +79,11 @@ The picker lives at `/`. URL contract: `?brand=<id>` swaps the active brand with
 ## Adding a brand
 
 1. Define the brand's design system as a token spec (colors, radii, typography stack, surface levels).
-2. Open a PR adding two pieces:
-   - A new `[data-brand="<your-brand>"]` block in `src/themes/brands.css`
-   - A new entry in `src/themes/brand.config.ts` with `id`, `label`, `swatch`, `description`, and the canonical `cssVariables` string for Copy CSS.
-3. Attach a screenshot of the live preview in light + dark modes.
+2. Add a new `BrandTokens` entry to `src/themes/brand-tokens.ts` — that file is the single source of truth.
+3. Run `bun run themes:build` to regenerate `src/themes/brands.css`, `registry.json`, and the Copy-CSS snippets map. Commit all three generated files alongside the token addition.
+4. Attach a screenshot of the live preview in light + dark modes to the PR.
 
-The token spec process itself (extracting real brand sites into a structured design brief) is intentionally not documented here — that's the maintainer's research workflow. Submit the derived CSS block and we'll review.
+The token spec process itself (extracting real brand sites into a structured design brief) is intentionally not documented here — that's the maintainer's research workflow. Submit the derived tokens and we'll review.
 
 ## Stack
 

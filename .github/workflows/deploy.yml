@@ -26,6 +26,12 @@ jobs:
 
       - run: bun install --frozen-lockfile
 
+      - name: Regenerate registry + brand CSS
+        run: bun scripts/build-themes.ts
+
+      - name: Fail if generated files are out of sync
+        run: git diff --exit-code registry.json src/themes/brands.css src/themes/copy-css-snippets.ts
+
       - run: bun run build
 
       - uses: actions/configure-pages@v5
