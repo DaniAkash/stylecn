@@ -141,7 +141,39 @@
           "--sidebar-border": "#e8e8ed",
           "--sidebar-ring": "#0071e3"
         },
-        "dark": {}
+        "dark": {
+          "--background": "#000000",
+          "--foreground": "#ffffff",
+          "--card": "#1d1d1f",
+          "--card-foreground": "#ffffff",
+          "--popover": "#1d1d1f",
+          "--popover-foreground": "#ffffff",
+          "--primary": "#0071e3",
+          "--primary-foreground": "#ffffff",
+          "--secondary": "#2c2c2e",
+          "--secondary-foreground": "#ffffff",
+          "--muted": "#2c2c2e",
+          "--muted-foreground": "#a1a1a6",
+          "--accent": "#2c2c2e",
+          "--accent-foreground": "#ffffff",
+          "--destructive": "#ff5a3c",
+          "--border": "rgba(255, 255, 255, 0.10)",
+          "--input": "rgba(255, 255, 255, 0.15)",
+          "--ring": "#0071e3",
+          "--chart-1": "#2997ff",
+          "--chart-2": "#a8d3fb",
+          "--chart-3": "#dfe74f",
+          "--chart-4": "#f3c4f6",
+          "--chart-5": "#ffffff",
+          "--sidebar": "#1d1d1f",
+          "--sidebar-foreground": "#ffffff",
+          "--sidebar-primary": "#0071e3",
+          "--sidebar-primary-foreground": "#ffffff",
+          "--sidebar-accent": "rgba(255, 255, 255, 0.06)",
+          "--sidebar-accent-foreground": "#ffffff",
+          "--sidebar-border": "rgba(255, 255, 255, 0.10)",
+          "--sidebar-ring": "#0071e3"
+        }
       }
     },
     {

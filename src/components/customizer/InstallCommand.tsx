@@ -9,6 +9,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 type PackageManager = "bun" | "pnpm" | "npm"
 
+const PACKAGE_MANAGERS: readonly PackageManager[] = ["bun", "pnpm", "npm"] as const
+
 const COMMAND_PREFIXES: Record<PackageManager, string> = {
   bun: "bunx --bun",
   pnpm: "pnpm dlx",
@@ -43,31 +45,29 @@ export function InstallCommand() {
       <FieldLabel>Install via shadcn CLI</FieldLabel>
       <Tabs value={pm} onValueChange={(v) => setPm(v as PackageManager)} className="w-full">
         <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="bun" className="px-1 text-xs">
-            bun
-          </TabsTrigger>
-          <TabsTrigger value="pnpm" className="px-1 text-xs">
-            pnpm
-          </TabsTrigger>
-          <TabsTrigger value="npm" className="px-1 text-xs">
-            npm
-          </TabsTrigger>
+          {PACKAGE_MANAGERS.map((value) => (
+            <TabsTrigger key={value} value={value} className="px-1 text-xs">
+              {value}
+            </TabsTrigger>
+          ))}
         </TabsList>
-        <TabsContent value={pm} className="mt-2">
-          <div className="bg-muted text-muted-foreground relative rounded-md p-2 pr-8 font-mono text-[10.5px] leading-snug break-all">
-            {command}
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon-xs"
-              onClick={copy}
-              className="absolute top-1 right-1 size-6"
-              aria-label="Copy install command"
-            >
-              {copied ? <CheckIcon /> : <CopyIcon />}
-            </Button>
-          </div>
-        </TabsContent>
+        {PACKAGE_MANAGERS.map((value) => (
+          <TabsContent key={value} value={value} className="mt-2">
+            <div className="bg-muted text-muted-foreground relative rounded-md p-2 pr-8 font-mono text-[10.5px] leading-snug break-all">
+              {commandFor(value, brand)}
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon-xs"
+                onClick={copy}
+                className="absolute top-1 right-1 size-6"
+                aria-label="Copy install command"
+              >
+                {copied ? <CheckIcon /> : <CopyIcon />}
+              </Button>
+            </div>
+          </TabsContent>
+        ))}
       </Tabs>
     </Field>
   )
