@@ -30,7 +30,18 @@ export function LazyExample({ title, Component }: LazyExampleProps) {
   }, [visible])
 
   return (
-    <Card ref={ref} className="overflow-hidden">
+    <Card
+      ref={ref}
+      className="overflow-hidden"
+      // Tells the browser it can skip rendering off-screen cards' subtrees.
+      // 'contain-intrinsic-size' gives layout a placeholder height so scroll
+      // bars stay accurate. Combined, this is the biggest browser-side perf
+      // win for very long pages with heavy DOM in each row.
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "320px",
+      }}
+    >
       <CardContent className="flex h-full min-h-[260px] flex-col gap-3 p-4">
         <div className="text-muted-foreground text-[11px] font-medium uppercase tracking-wider">
           {title}

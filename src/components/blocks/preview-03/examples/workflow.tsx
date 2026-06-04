@@ -152,14 +152,18 @@ const edgeTypes = {
   temporary: Edge.Temporary,
 };
 
+// React Flow needs an explicit container size or it re-measures forever and
+// pegs the main thread — the freeze symptom in Firefox-based browsers.
 const Example = () => (
-  <Canvas
-    edges={edges}
-    edgeTypes={edgeTypes}
-    fitView
-    nodes={nodes}
-    nodeTypes={nodeTypes}
-  />
+  <div className="h-[420px] w-full">
+    <Canvas
+      edges={edges}
+      edgeTypes={edgeTypes}
+      fitView
+      nodes={nodes}
+      nodeTypes={nodeTypes}
+    />
+  </div>
 );
 
 export default Example;
