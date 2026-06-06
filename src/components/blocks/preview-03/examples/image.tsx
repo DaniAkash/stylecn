@@ -12,7 +12,7 @@ const Example = () => (
   <Image
     {...exampleImage}
     alt="Example generated image"
-    className="aspect-square h-[150px] border"
+    className="aspect-square h-[360px] border"
   />
 );
 
