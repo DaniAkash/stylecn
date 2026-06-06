@@ -42,131 +42,109 @@ import TranscriptionExample from "@/components/blocks/preview-03/examples/transc
 import VoiceSelectorExample from "@/components/blocks/preview-03/examples/voice-selector"
 import WebPreviewExample from "@/components/blocks/preview-03/examples/web-preview"
 import WorkflowExample from "@/components/blocks/preview-03/examples/workflow"
-import { LazyExample } from "@/components/blocks/preview-03/LazyExample"
+import { Card, CardContent } from "@/components/ui/card"
 
-type Example = {
-  title: string
-  Component: ComponentType
-}
+type Example = { title: string; Component: ComponentType }
 
-type Section = {
-  title: string
-  examples: Example[]
-}
-
-const SECTIONS: Section[] = [
-  {
-    title: "Chatbot",
-    examples: [
-      { title: "Attachments", Component: AttachmentsExample },
-      { title: "Chain of Thought", Component: ChainOfThoughtExample },
-      { title: "Checkpoint", Component: CheckpointExample },
-      { title: "Confirmation", Component: ConfirmationExample },
-      { title: "Context", Component: ContextExample },
-      { title: "Conversation", Component: ConversationExample },
-      { title: "Inline Citation", Component: InlineCitationExample },
-      { title: "Message", Component: MessageExample },
-      { title: "Model Selector", Component: ModelSelectorExample },
-      { title: "Plan", Component: PlanExample },
-      { title: "Prompt Input", Component: PromptInputExample },
-      { title: "Queue", Component: QueueExample },
-      { title: "Reasoning", Component: ReasoningExample },
-      { title: "Shimmer", Component: ShimmerExample },
-      { title: "Sources", Component: SourcesExample },
-      { title: "Suggestion", Component: SuggestionExample },
-      { title: "Task", Component: TaskExample },
-      { title: "Tool", Component: ToolExample },
-    ],
-  },
-  {
-    title: "Code",
-    examples: [
-      { title: "Agent", Component: AgentExample },
-      { title: "Artifact", Component: ArtifactExample },
-      { title: "Code Block", Component: CodeBlockExample },
-      { title: "Commit", Component: CommitExample },
-      { title: "Environment Variables", Component: EnvironmentVariablesExample },
-      { title: "File Tree", Component: FileTreeExample },
-      { title: "JSX Preview", Component: JsxPreviewExample },
-      { title: "Package Info", Component: PackageInfoExample },
-      { title: "Sandbox", Component: SandboxExample },
-      { title: "Schema Display", Component: SchemaDisplayExample },
-      { title: "Snippet", Component: SnippetExample },
-      { title: "Stack Trace", Component: StackTraceExample },
-      { title: "Terminal", Component: TerminalExample },
-      { title: "Test Results", Component: TestResultsExample },
-      { title: "Web Preview", Component: WebPreviewExample },
-    ],
-  },
-  {
-    title: "Voice",
-    examples: [
-      { title: "Audio Player", Component: AudioPlayerExample },
-      { title: "Mic Selector", Component: MicSelectorExample },
-      { title: "Persona", Component: PersonaManaExample },
-      { title: "Speech Input", Component: SpeechInputExample },
-      { title: "Transcription", Component: TranscriptionExample },
-      { title: "Voice Selector", Component: VoiceSelectorExample },
-    ],
-  },
-  {
-    title: "Workflow",
-    examples: [{ title: "Workflow Canvas", Component: WorkflowExample }],
-  },
-  {
-    title: "Utilities",
-    examples: [
-      { title: "Image", Component: ImageExample },
-      { title: "Open in Chat", Component: OpenInChatExample },
-    ],
-  },
+// 7 columns × 6 = 42 components. Mirrors the wide horizontal-scroll canvas
+// used by preview-01 / preview-02. Components grouped loosely by category so
+// readers can scan a column for related AI surfaces without forcing a rigid
+// taxonomy.
+const COLUMNS: Example[][] = [
+  [
+    { title: "Audio Player", Component: AudioPlayerExample },
+    { title: "Mic Selector", Component: MicSelectorExample },
+    { title: "Persona", Component: PersonaManaExample },
+    { title: "Speech Input", Component: SpeechInputExample },
+    { title: "Transcription", Component: TranscriptionExample },
+    { title: "Voice Selector", Component: VoiceSelectorExample },
+  ],
+  [
+    { title: "Message", Component: MessageExample },
+    { title: "Conversation", Component: ConversationExample },
+    { title: "Suggestion", Component: SuggestionExample },
+    { title: "Chain of Thought", Component: ChainOfThoughtExample },
+    { title: "Reasoning", Component: ReasoningExample },
+    { title: "Shimmer", Component: ShimmerExample },
+  ],
+  [
+    { title: "Attachments", Component: AttachmentsExample },
+    { title: "Model Selector", Component: ModelSelectorExample },
+    { title: "Prompt Input", Component: PromptInputExample },
+    { title: "Queue", Component: QueueExample },
+    { title: "Sources", Component: SourcesExample },
+    { title: "Inline Citation", Component: InlineCitationExample },
+  ],
+  [
+    { title: "Confirmation", Component: ConfirmationExample },
+    { title: "Checkpoint", Component: CheckpointExample },
+    { title: "Context", Component: ContextExample },
+    { title: "Plan", Component: PlanExample },
+    { title: "Task", Component: TaskExample },
+    { title: "Tool", Component: ToolExample },
+  ],
+  [
+    { title: "Agent", Component: AgentExample },
+    { title: "Artifact", Component: ArtifactExample },
+    { title: "Code Block", Component: CodeBlockExample },
+    { title: "Snippet", Component: SnippetExample },
+    { title: "JSX Preview", Component: JsxPreviewExample },
+    { title: "File Tree", Component: FileTreeExample },
+  ],
+  [
+    { title: "Commit", Component: CommitExample },
+    { title: "Environment Variables", Component: EnvironmentVariablesExample },
+    { title: "Sandbox", Component: SandboxExample },
+    { title: "Stack Trace", Component: StackTraceExample },
+    { title: "Test Results", Component: TestResultsExample },
+    { title: "Terminal", Component: TerminalExample },
+  ],
+  [
+    { title: "Package Info", Component: PackageInfoExample },
+    { title: "Schema Display", Component: SchemaDisplayExample },
+    { title: "Web Preview", Component: WebPreviewExample },
+    { title: "Workflow Canvas", Component: WorkflowExample },
+    { title: "Image", Component: ImageExample },
+    { title: "Open in Chat", Component: OpenInChatExample },
+  ],
 ]
+
+function CardWrap({ title, Component }: Example) {
+  return (
+    <Card className="overflow-hidden">
+      <CardContent className="flex flex-col gap-2 p-4">
+        <div className="text-muted-foreground text-[10.5px] font-medium uppercase tracking-wider">
+          {title}
+        </div>
+        <Component />
+      </CardContent>
+    </Card>
+  )
+}
 
 export default function Preview03Example() {
   return (
-    <div className="bg-muted dark:bg-background min-h-full p-6 md:p-10">
-      <div className="mx-auto flex max-w-7xl flex-col gap-12">
-        <header>
-          <p className="text-muted-foreground text-xs font-medium uppercase tracking-widest">
-            AI Elements
-          </p>
-          <h1 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
-            Build AI-native UI in your brand
-          </h1>
-          <p className="text-muted-foreground mt-2 max-w-2xl text-sm leading-relaxed">
-            Every component shipped by{" "}
-            <a
-              href="https://elements.ai-sdk.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground underline underline-offset-4 decoration-dotted"
+    <div className="overflow-x-auto overflow-y-hidden bg-muted contain-[paint] [--gap:--spacing(4)] md:[--gap:--spacing(10)] 3xl:[--gap:--spacing(12)] dark:bg-background">
+      <div className="flex w-full min-w-max justify-center">
+        <div
+          className="grid w-[2800px] grid-cols-7 items-start gap-(--gap) bg-muted p-(--gap) md:w-[3200px] dark:bg-background"
+          data-slot="capture-target"
+        >
+          {COLUMNS.map((column, columnIndex) => (
+            <div
+              key={columnIndex}
+              className="flex flex-col gap-(--gap) p-1"
+              style={{
+                contentVisibility: "auto",
+                containIntrinsicSize: "400px 2000px",
+              }}
             >
-              AI Elements
-            </a>
-            , rendered with the active stylecn brand. AI Elements uses standard
-            shadcn CSS variables, so your picked brand applies everywhere
-            automatically.
-          </p>
-        </header>
-
-        {SECTIONS.map((section) => (
-          <section key={section.title} className="flex flex-col gap-4">
-            <div className="flex items-baseline gap-3">
-              <h2 className="text-base font-semibold tracking-tight">
-                {section.title}
-              </h2>
-              <span className="text-muted-foreground text-xs">
-                {section.examples.length}{" "}
-                {section.examples.length === 1 ? "component" : "components"}
-              </span>
-            </div>
-            <div className="grid auto-rows-min grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {section.examples.map(({ title, Component }) => (
-                <LazyExample key={title} title={title} Component={Component} />
+              {column.map((item) => (
+                <CardWrap key={item.title} {...item} />
               ))}
             </div>
-          </section>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )
