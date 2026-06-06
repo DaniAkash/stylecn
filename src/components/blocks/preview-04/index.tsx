@@ -21,13 +21,23 @@ import WorkflowExample from "@/components/blocks/preview-03/examples/workflow"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 
-// Tab 04 — AI Code & Tools. True item-level CSS grid placement so a handful
-// of components can occupy more visual real-estate where they read best:
-//   - Artifact     : 2 cols wide  (long code blocks need breathing room)
-//   - Workflow     : 2 cols × 2 rows (canvas-style; benefits from both axes)
-//   - Image        : 2 rows tall (image content scales with available height)
-// Other cards stay 1×1 and `grid-auto-flow: dense` backfills the rectangles
-// the spanned cards leave behind, so the canvas reads as a coherent grid.
+// Tab 04 — AI Code & Tools. True item-level CSS grid placement.
+//
+// 18 cards × varying spans, ordered so `grid-auto-flow: row dense` packs
+// every cell with zero blank space across a 4-col × 6-row canvas:
+//
+//   row 1 │ Agent · Artifact (2) · Code Block
+//   row 2 │ Snippet · JSX Preview · Commit · File Tree
+//   row 3 │ Env Vars · Workflow (2×2) · Image (1×2)
+//   row 4 │ Schema  · Workflow      · Image
+//   row 5 │ Sandbox · Stack Trace · Web Preview (2)
+//   row 6 │ Terminal · Test Results · Package Info · Open in Chat
+//
+// Spans chosen for readability of the underlying surface:
+//   Artifact   2×1   long code blocks read better wider
+//   Workflow   2×2   canvas-style; benefits from both axes
+//   Image      1×2   image content scales with available height
+//   Web Preview 2×1  web mockup feels like a web page when wider
 
 type SpanProps = { colSpan?: 1 | 2; rowSpan?: 1 | 2 }
 
@@ -43,17 +53,17 @@ const ITEMS: Example[] = [
   { title: "Snippet", Component: SnippetExample },
   { title: "JSX Preview", Component: JsxPreviewExample },
   { title: "Commit", Component: CommitExample },
-  { title: "Environment Variables", Component: EnvironmentVariablesExample },
   { title: "File Tree", Component: FileTreeExample },
+  { title: "Environment Variables", Component: EnvironmentVariablesExample },
   { title: "Workflow Canvas", Component: WorkflowExample, colSpan: 2, rowSpan: 2 },
-  { title: "Package Info", Component: PackageInfoExample },
-  { title: "Schema Display", Component: SchemaDisplayExample },
   { title: "Image", Component: ImageExample, rowSpan: 2 },
+  { title: "Schema Display", Component: SchemaDisplayExample },
   { title: "Sandbox", Component: SandboxExample },
   { title: "Stack Trace", Component: StackTraceExample },
+  { title: "Web Preview", Component: WebPreviewExample, colSpan: 2 },
   { title: "Terminal", Component: TerminalExample },
   { title: "Test Results", Component: TestResultsExample },
-  { title: "Web Preview", Component: WebPreviewExample },
+  { title: "Package Info", Component: PackageInfoExample },
   { title: "Open in Chat", Component: OpenInChatExample },
 ]
 
