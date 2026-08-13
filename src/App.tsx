@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { lazy, Suspense, useState } from "react"
 
 import PreviewExample from "@/components/blocks/preview"
 import Preview02Example from "@/components/blocks/preview-02"
@@ -6,12 +6,54 @@ import { BrandProvider } from "@/components/brand-provider"
 import { Customizer } from "@/components/customizer/Customizer"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
+import { Skeleton } from "@/components/ui/skeleton"
 import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
+
+// AI Elements ships heavy deps (shiki, react-flow, motion, streamdown, …).
+// Split tab 03 (chat / voice) and tab 04 (code / tools) into separate lazy
+// chunks so each tab only mounts ~half the catalog. Cuts initial parse cost
+// and keeps Chrome / Firefox happy.
+const Preview03Example = lazy(() => import("@/components/blocks/preview-03"))
+const Preview04Example = lazy(() => import("@/components/blocks/preview-04"))
+
+function AiPreviewFallback() {
+  return (
+    <div className="bg-muted dark:bg-background h-full overflow-x-auto overflow-y-hidden p-4 md:p-10">
+      <div className="flex w-max gap-4 md:gap-10">
+        {Array.from({ length: 5 }).map((_, col) => (
+          <div key={col} className="flex w-[380px] flex-col gap-4 md:gap-10">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <Skeleton key={i} className="h-64 w-full rounded-xl" />
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const PREVIEWS = [
   { id: "preview", label: "01", Component: PreviewExample },
   { id: "preview-02", label: "02", Component: Preview02Example },
+  {
+    id: "preview-03",
+    label: "03",
+    Component: () => (
+      <Suspense fallback={<AiPreviewFallback />}>
+        <Preview03Example />
+      </Suspense>
+    ),
+  },
+  {
+    id: "preview-04",
+    label: "04",
+    Component: () => (
+      <Suspense fallback={<AiPreviewFallback />}>
+        <Preview04Example />
+      </Suspense>
+    ),
+  },
 ] as const
 
 type PreviewId = (typeof PREVIEWS)[number]["id"]
