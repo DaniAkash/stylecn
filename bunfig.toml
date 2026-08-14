@@ -1,0 +1,10 @@
+# Global virtual store: install packages once into a shared store and link them
+# into node_modules as symlinks, instead of copying a full tree per project.
+# node_modules shrinks to a few MB of symlinks, which is a big win for the
+# on-demand worktree workflow, and warm installs are much faster.
+#
+# Requires the isolated linker (single-package projects default to hoisted, so
+# it is set explicitly here). https://bun.com/docs/pm/global-store
+[install]
+linker = "isolated"
+globalStore = true
